@@ -1,4 +1,4 @@
-import json
+import json,os
 
 import allure
 import pytest
@@ -6,7 +6,8 @@ from allure_commons.types import AttachmentType
 
 from utils.driver_factory import DriverFactory
 
-CONFIG_PATH = "../config.json"
+ROOT_DIR = os.path.abspath(os.curdir)
+CONFIG_PATH = ROOT_DIR + "\\config.json"
 DEFAULT_WAIT_TIME = 10
 SUPPORTED_BROWSERS = ["chrome", "firefox", "edge"]
 DEFAULT_WEBSITE = "http://www.google.com/"
@@ -37,7 +38,7 @@ def website_setup(config):
     return config['tested_page'] if 'tested_page' in config else DEFAULT_WEBSITE
 
 
-@pytest.fixture()
+@pytest.fixture(scope='function')
 def setup(request, config):
     driver = DriverFactory.get_driver(config["browser"], config["headless_mode"])
     driver.implicitly_wait(config["timeout"])

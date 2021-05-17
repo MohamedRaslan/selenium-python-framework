@@ -36,8 +36,8 @@ class LogInLocators:
     logout_link = (By.LINK_TEXT, "Logout")
     account_link = (By.LINK_TEXT, "Account")
     sign_up_link = (By.XPATH, "Sign Up")
-    email_input = (By.XPATH, "//input[@placeholder='Email']")
-    password_input = (By.XPATH, "//input[@placeholder='Password']")
+    email_input = (By.XPATH, "//input[@type='email']")
+    password_input = (By.XPATH, "//input[@type='password']")
     invalid_data_msg = (By.XPATH, "//div[@class='alert alert-danger']")
 
 
@@ -70,7 +70,7 @@ class SearchHotelsFormLocators:
 class SearchFlightsFormLocators:
     one_way_radio = (By.XPATH, "//label[text()='One Way']")
     round_trip_radio = (By.XPATH, "//label[text()='Round Trip']")
-    cabinclass_dropdown = (By.XPATH, "//div[@class='col-xs-4 col-md-2']")
+    cabinclass_dropdown = (By.XPATH, "//div[@class='form-icon-left flightclass']")
     loc_from_inactive = (By.XPATH, "//div[@id='s2id_location_from']")
     loc_to_inactive = (By.XPATH, "//div[@id='s2id_location_to']")
     loc_input_active = (By.XPATH, "//input[@class='select2-input select2-focused']")
